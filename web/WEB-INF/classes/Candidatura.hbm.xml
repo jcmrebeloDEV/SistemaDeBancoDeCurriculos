@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="entity.Candidatura" table="candidatura">
+
+        <id name="id">
+            <generator class="native"/>
+        </id>
+
+        <property name="dataCandidatura"/>
+
+        <property name="mensagem"/>
+
+        <many-to-one name="pessoaFisica" lazy="false" class="entity.PessoaFisica" column="pessoafisica_pessoa_id" cascade="none"/>
+        
+        <many-to-one name="vaga" lazy="false" class="entity.Vaga" column="vaga_id" cascade="none"/>
+
+
+    </class>
+
+</hibernate-mapping>

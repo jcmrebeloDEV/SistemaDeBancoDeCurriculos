@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+
+    <package name="default" namespace="/" extends="struts-default">
+
+   
+        <action name="login" class="action.LoginAction">
+            <result name="input">login.jsp</result>
+            <result>index.jsp</result>
+        </action>
+
+        <action name="ManterUsuario" class="action.ManterUsuarioAction">
+            <result name="lista">manterUsuario.jsp</result>
+            <result name="formEditPj">manterUsuarioEditPj.jsp</result>
+            <result name="formAddPj">manterUsuarioAddPj.jsp</result>
+            <result name="formEditPf">manterUsuarioEditPf.jsp</result>
+            <result name="formAddPf">manterUsuarioAddPf.jsp</result>
+            <result name="sucesso">CadastroSucesso.jsp</result>
+            <result name="mensagem">mensagem.jsp</result>
+        </action>
+
+
+        <action name="ManterCurriculo" class="action.ManterCurriculoAction">
+            <result name="formView">manterCurriculoView.jsp</result>
+            <result name="formEdit">manterCurriculoEdit.jsp</result>
+            <result name="mensagem">mensagem.jsp</result>
+        </action>
+
+
+        <action name="ManterVaga" class="action.ManterVagaAction">
+            <result name="formView">manterVagaView.jsp</result>
+            <result name="formEdit">manterVagaEdit.jsp</result>
+            <result name="formAdd">manterVagaAdd.jsp</result>
+            <result name="lista">manterVaga.jsp</result>
+            <result name="mensagem">mensagem.jsp</result>
+        </action>
+
+
+        <action name="Candidatura" class="action.CandidaturaAction">
+            <result name="listaPf">candidaturaListaPf.jsp</result>
+            <result name="listaVaga">candidaturaListaVaga.jsp</result>
+            <result name="sucesso">CandidaturaSucesso.jsp</result>
+        </action>
+
+         <action name="Busca" class="action.BuscaAction">
+            <result name="busca">busca.jsp</result>
+        </action>
+
+    </package>
+
+    <package name="charts" namespace="/" extends="jfreechart-default">
+
+        <action name="Estatistica" class="action.EstatisticaAction">
+            <result name="success"  type="chart">
+                <param name="type">png</param>
+                <param name="width">600</param>
+                <param name="height">500</param>
+            </result>
+            <result name="view">estatisticas.jsp</result>
+        </action>
+
+    </package>
+
+
+</struts>

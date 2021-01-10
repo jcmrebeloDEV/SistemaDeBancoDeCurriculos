@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="entity.Usuario" table="usuario">
+        <id name="id" column="pessoa_id">
+           <generator class="foreign">
+          <param name="property">pessoa</param>
+          </generator>
+        </id>
+        <property name="login"/>
+        <property name="senha"/>
+        <property name="tipo"/>
+       
+       <one-to-one name="pessoa" class="entity.Pessoa" cascade="none" />
+
+    </class>
+
+</hibernate-mapping>

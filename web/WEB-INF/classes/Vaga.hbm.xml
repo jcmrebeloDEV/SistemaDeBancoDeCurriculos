@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="entity.Vaga" table="vaga">
+
+          <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+
+        <property name="areaProfissional"/>
+
+        <property name="uf" />
+
+        <property name="cargo"/>
+
+        <property name="descricao"/>
+
+        <property name="dataDePublicacao"/>
+
+        <property name="observacoes"/>
+
+        <many-to-one name="pessoaJuridica" class="entity.PessoaJuridica" column="Pessoajuridica_pessoa_id" cascade="none"/>
+
+         <set name="candidaturas" inverse="true" lazy="true" order-by="id desc">
+            <key column="vaga_id"/>
+            <one-to-many class="entity.Candidatura"/>
+        </set>
+
+
+    </class>
+
+</hibernate-mapping>

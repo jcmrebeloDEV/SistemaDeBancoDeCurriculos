@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="entity.Curriculo" table="curriculo">
+
+        <id name="id" column="pessoafisica_pessoa_id">
+            <generator class="foreign">
+                <param name="property">pessoaFisica</param>
+            </generator>
+        </id>
+
+        <property name="areaProfissional" />
+
+        <property name="descExperiencia"/>
+
+        <property name="descConhecimentos"/>
+
+        <property name="descIdiomas"/>
+
+        <property name="escolaridade"/>
+
+        <property name="descFormacaoAcademica"/>
+
+        <property name="dataUltimaAlteracao"/>
+
+        <property name="observacoes"/>
+
+        <one-to-one name="pessoaFisica" class="entity.PessoaFisica" cascade="none" />
+
+    </class>
+
+</hibernate-mapping>

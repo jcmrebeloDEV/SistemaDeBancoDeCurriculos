@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <joined-subclass name="entity.PessoaJuridica" extends="entity.Pessoa" table="pessoajuridica">
+        <key column="pessoa_id"/>
+
+        <property name="cnpj"/>
+
+        <property name="siteCorporativo" />
+
+        <set name="vagas" inverse="true" lazy="false" order-by="id desc" cascade="all-delete-orphan">
+            <key column="pessoajuridica_pessoa_id"/>
+            <one-to-many class="entity.Vaga"/>
+        </set>
+
+    </joined-subclass>
+
+</hibernate-mapping>
